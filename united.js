@@ -45,9 +45,10 @@ document.addEventListener("DOMContentLoaded", function () {
 })
 //EMAIL JS
 function sendMail() {
-
-  const serviceID = "service_zf4kqmo";
-  const templateID = "template_gi9akxe";
+event.preventDefault();
+  
+  const serviceID = "service_hsgobmb";
+  const templateID = "template_ujv1leu";
   const form = document.getElementById("contact-form")
 
   emailjs.sendForm(serviceID, templateID, form).then(alert("Your Message Has Been Sent"))
