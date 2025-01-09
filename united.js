@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", function () {
 function sendMail() {
   lets parms = {
      name : document.getElementById("name").value,
-     email : document.getElementById("name").value,
+     email : document.getElementById("email").value,
      message : document.getElementById("message").value,
   }
 
