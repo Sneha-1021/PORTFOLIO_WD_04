@@ -45,35 +45,13 @@ document.addEventListener("DOMContentLoaded", function () {
   window.addEventListener('scroll', animateProgress)
 })
 //EMAIL JS
-// function sendMail() {
 
- // const serviceID = "service_zf4kqmo";
- // const templateID = "template_gi9akxe";
- // const form = document.getElementById("contact-form")
+function sendMail() {
+  let parms = {
+     name : document.getElementById("name").value,
+     email : document.getElementById("email").value,
+     message : document.getElementById("message").value,
+  }
 
- // emailjs.sendForm(serviceID, templateID, form).then(alert("Your Message Has Been Sent"))
-//}
-
-function sendMail(event) {
-  event.preventDefault(); // Prevent the form from refreshing the page
-  
-  emailjs.init("snehababbar1014@gmail.com"); // Replace with your EmailJS User ID
-  //const serviceID = "YOUR_SERVICE_ID"; // Replace with your EmailJS Service ID
-  //const templateID = "YOUR_TEMPLATE_ID"; // Replace with your EmailJS Template ID
-
-  const params = {
-    name: document.getElementById("name").value,
-    email: document.getElementById("email").value,
-    message: document.getElementById("message").value,
-  };
-
-  emailjs
-    .send(serviceID, templateID, params)
-    .then((response) => {
-      alert("Message sent successfully!");
-    })
-    .catch((error) => {
-      alert("Failed to send message. Try again later.");
-      console.error("Error:", error);
-    });
+  emailjs.send("service_hsgobmb","template_ujv1leu",parms).then(alert("Message Sent Successfully!!"))
 }
