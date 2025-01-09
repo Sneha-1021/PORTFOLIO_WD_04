@@ -51,7 +51,7 @@ function sendMail() {
      message : document.getElementById("message").value,
   }
 
-  emailjs.send("service_hsgobmb","template_ujv1leu",parms).then(alert("Email Sent Successfully!!"))
+  emailjs.send("service_hsgobmb","template_ujv1leu",parms).then(alert("Message Sent Successfully!!"))
 }
 event.preventDefault();
   
