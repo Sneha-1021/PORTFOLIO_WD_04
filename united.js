@@ -44,19 +44,18 @@ document.addEventListener("DOMContentLoaded", function () {
   window.addEventListener('scroll', animateProgress)
 })
 //EMAIL JS
-function sendMail(event) {
-event.preventDefault();
-  
-  const serviceID = "service_hsgobmb";
-  const templateID = "template_ujv1leu";
-  const form = document.getElementById("contact-form")
+function sendMail() {
+  lets parms = {
+     name : document.getElementById("name").value,
+     email : document.getElementById("name").value,
+     message : document.getElementById("message").value,
+  }
 
-  emailjs.sendForm(serviceID, templateID, form).then((response) => {(alert("Your Message Has Been Sent sucessfully!");
-  form.reset();
-                                                                   })
-  .catch((error) => {
-    alert("Failed to send the message. Please try again later.");
-    console.error("EmailsJS Error:", error);
-  });
+  emailjs.send("service_hsgobmb","template_ujv1leu",parms).then(alert("Email Sent Successfully!!"))
 }
-document.getElementById("contact-form").addEventListener("submit", sendMail);
+    
+
+
+
+
+
