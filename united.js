@@ -16,6 +16,7 @@ navLinks.forEach((link) => {
   link.addEventListener('click', closeMenu)
 })
 //PROGRESS BAR ANIMATION
+
 document.addEventListener("DOMContentLoaded", function () {
   const progressBar = document.querySelectorAll(".progress-bar")
 
@@ -44,32 +45,35 @@ document.addEventListener("DOMContentLoaded", function () {
   window.addEventListener('scroll', animateProgress)
 })
 //EMAIL JS
-function sendMail() {
-  lets parms = {
-     name : document.getElementById("name").value,
-     email : document.getElementById("email").value,
-     message : document.getElementById("message").value,
-  }
+// function sendMail() {
 
-  emailjs.send("service_hsgobmb","template_ujv1leu",parms).then(alert("Message Sent Successfully!!"))
-}
-event.preventDefault();
+ // const serviceID = "service_zf4kqmo";
+ // const templateID = "template_gi9akxe";
+ // const form = document.getElementById("contact-form")
+
+ // emailjs.sendForm(serviceID, templateID, form).then(alert("Your Message Has Been Sent"))
+//}
+
+function sendMail(event) {
+  event.preventDefault(); // Prevent the form from refreshing the page
   
-  const serviceID = "service_hsgobmb";
-  const templateID = "template_ujv1leu";
-  const form = document.getElementById("contact-form")
+  emailjs.init("snehababbar1014@gmail.com"); // Replace with your EmailJS User ID
+  //const serviceID = "YOUR_SERVICE_ID"; // Replace with your EmailJS Service ID
+  //const templateID = "YOUR_TEMPLATE_ID"; // Replace with your EmailJS Template ID
 
-  emailjs.sendForm(serviceID, templateID, form).then((response) => {(alert("Your Message Has Been Sent sucessfully!");
-  form.reset();
-                                                                   })
-  .catch((error) => {
-    alert("Failed to send the message. Please try again later.");
-    console.error("EmailsJS Error:", error);
-  });
+  const params = {
+    name: document.getElementById("name").value,
+    email: document.getElementById("email").value,
+    message: document.getElementById("message").value,
+  };
+
+  emailjs
+    .send(serviceID, templateID, params)
+    .then((response) => {
+      alert("Message sent successfully!");
+    })
+    .catch((error) => {
+      alert("Failed to send message. Try again later.");
+      console.error("Error:", error);
+    });
 }
-document.getElementById("contact-form").addEventListener("submit", sendMail);    
-
-
-
-
-
