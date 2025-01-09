@@ -53,7 +53,21 @@ function sendMail() {
 
   emailjs.send("service_hsgobmb","template_ujv1leu",parms).then(alert("Email Sent Successfully!!"))
 }
-    
+event.preventDefault();
+  
+  const serviceID = "service_hsgobmb";
+  const templateID = "template_ujv1leu";
+  const form = document.getElementById("contact-form")
+
+  emailjs.sendForm(serviceID, templateID, form).then((response) => {(alert("Your Message Has Been Sent sucessfully!");
+  form.reset();
+                                                                   })
+  .catch((error) => {
+    alert("Failed to send the message. Please try again later.");
+    console.error("EmailsJS Error:", error);
+  });
+}
+document.getElementById("contact-form").addEventListener("submit", sendMail);    
 
 
 
